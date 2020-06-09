@@ -7,8 +7,8 @@ RUN conda install --quiet --yes \
 	'conda-forge::tqdm' \
 	'conda-forge::feather-format'
 
-RUN	jupyter labextension install @jupyterlab/debugger \
-	jupyter labextension install @jupyterlab/github \
+RUN	jupyter labextension install @jupyterlab/debugger && \
+	jupyter labextension install @jupyterlab/github && \
 	jupyter lab build -y && \
     jupyter lab clean -y && \
     npm cache clean --force && \
