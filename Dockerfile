@@ -3,7 +3,7 @@ FROM $BASE_CONTAINER
 
 RUN pip install --upgrade jupyterlab-git
 
-RUN conda install -c --quiet --yes \
+RUN conda install --quiet --yes \
 	'conda-forge::tqdm' \
 	'conda-forge::feather-format'
 
