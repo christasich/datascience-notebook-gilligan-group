@@ -24,9 +24,9 @@ RUN	jupyter labextension install @jupyterlab/debugger && \
 	jupyter labextension install @jupyterlab/hub-extension && \
 	jupyter labextension install @krassowski/jupyterlab-lsp && \
 	jupyter labextension install @jupyter-widgets/jupyterlab-manager && \
-	jupyter labextension install jupyterlab_voyager && \
-	jupyter labextension install jupyterlab-dash@0.1.0-alpha.3 && \
-	jupyter labextension install ipysheet && \
+	jupyter labextension install @jupyterlab_voyager && \
+	jupyter labextension install @jupyterlab-dash@0.1.0-alpha.3 && \
+	jupyter labextension install @ipysheet && \
 	jupyter labextension install @lckr/jupyterlab_variableinspector && \
 	jupyter lab build -y && \
     jupyter lab clean -y && \
