@@ -6,9 +6,9 @@ RUN pip install --upgrade jupyterlab-git
 RUN conda install -c --quiet --yes \
 	'conda-forge::tqdm' \
 	'conda-forge::feather-format'
-	&& \
-	jupyter labextension install @jupyterlab/debugger
-	jupyter labextension install @jupyterlab/github
+
+RUN	jupyter labextension install @jupyterlab/debugger \
+	jupyter labextension install @jupyterlab/github \
 	jupyter lab build -y && \
     jupyter lab clean -y && \
     npm cache clean --force && \
