@@ -5,7 +5,7 @@ LABEL maintainer="Chris Tasich <chris.tasich@vanderbilt.edu>"
 
 RUN pip install --upgrade jupyterlab-git && \
 	pip install jupyter-lsp \
-	pip install jupyterlab-dash=0.1.0a3
+	pip install "jupyterlab>=1.0" jupyterlab-dash==0.1.0a3
 
 RUN conda install --quiet --yes \
 	'conda-forge::tqdm' \
