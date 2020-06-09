@@ -1,19 +1,17 @@
 ARG BASE_CONTAINER=jupyter/datascience-notebook
 FROM $BASE_CONTAINER
 
-LABEL maintainer="Jupyter Project <jupyter@googlegroups.com>"
+LABEL maintainer="Chris Tasich <chris.tasich@vanderbilt.edu>"
 
 RUN pip install --upgrade jupyterlab-git && \
-	pip install jupyter-lsp
+	pip install jupyter-lsp \
+	pip install jupyterlab-dash=0.1.0a3
 
 RUN conda install --quiet --yes \
 	'conda-forge::tqdm' \
 	'conda-forge::feather-format' \
 	'conda-forge::python-language-server' \
 	'conda-forge::r-languageserver' \
-	'plotly' \
-	'defaults' \
-	'conda-forge::jupyterlab-dash' \
 	'conda-forge::ipysheet' \
 	'xeus-python'
 
