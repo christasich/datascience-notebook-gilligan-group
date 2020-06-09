@@ -26,6 +26,7 @@ RUN	jupyter labextension install @jupyterlab/debugger && \
 	jupyter labextension install @j123npm/jupyterlab-dash@0.1.0-alpha.4 && \
 	jupyter labextension install ipysheet && \
 	jupyter labextension install @lckr/jupyterlab_variableinspector && \
+	jupyter labextension install @oriolmirosa/jupyterlab_materialdarker && \
 	jupyter lab build -y && \
     jupyter lab clean -y && \
     npm cache clean --force && \
