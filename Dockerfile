@@ -17,7 +17,12 @@ RUN conda install --quiet --yes \
 	'xeus-python' \
 	'conda-forge::jupyterlab_code_formatter' \
 	'black' \
-	'conda-forge::nbresuse'
+	'conda-forge::nbresuse' \
+	'r-tsibble' \
+	'r-lubridate' \
+	'r-tidyverse' \
+	'conda-forge::r-oce' \
+	'conda-forge::r-feather'
 
 RUN	jupyter labextension install @jupyterlab/debugger && \
 	jupyter labextension install @jupyterlab/github && \
