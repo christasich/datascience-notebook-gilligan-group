@@ -22,7 +22,8 @@ RUN conda install --quiet --yes \
 	'r-lubridate' \
 	'r-tidyverse' \
 	'conda-forge::r-oce' \
-	'conda-forge::r-feather'
+	'conda-forge::r-feather' \
+	'conda-forge::pyprojroot'
 
 RUN	jupyter labextension install @jupyterlab/debugger && \
 	jupyter labextension install @jupyterlab/github && \
