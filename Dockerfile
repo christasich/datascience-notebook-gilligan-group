@@ -3,6 +3,8 @@ FROM $BASE_CONTAINER
 
 LABEL maintainer="Chris Tasich <chris.tasich@vanderbilt.edu>"
 
+RUN	jupyter labextension install @ryantam626/jupyterlab_code_formatter
+
 RUN pip install --upgrade jupyterlab-git && \
 	pip install jupyter-lsp && \
 	pip install "jupyterlab>=1.0" jupyterlab-dash==0.1.0a3 && \
@@ -22,7 +24,7 @@ RUN conda install --quiet --yes \
 	'r-lubridate' \
 	'r-tidyverse' \
 	'conda-forge::r-oce' \
-	'conda-forge::r-feather' \
+	'conda-forge::r-arrow' \
 	'conda-forge::pyprojroot'
 
 RUN	jupyter labextension install @jupyterlab/debugger && \
@@ -38,7 +40,6 @@ RUN	jupyter labextension install @jupyterlab/debugger && \
 	jupyter labextension install ipysheet && \
 	jupyter labextension install @lckr/jupyterlab_variableinspector && \
 	jupyter labextension install @oriolmirosa/jupyterlab_materialdarker && \
-	jupyter labextension install @ryantam626/jupyterlab_code_formatter && \
 	jupyter labextension install jupyterlab-drawio && \
 	jupyter labextension install jupyterlab-topbar-extension && \
 	jupyter labextension install jupyterlab-system-monitor && \
@@ -53,4 +54,4 @@ RUN	jupyter labextension install @jupyterlab/debugger && \
     fix-permissions $CONDA_DIR && \
     fix-permissions /home/$NB_USER
 	
-RUN jupyter serverextension enable --py jupyterlab_code_formatter
+RUN jupyter serverextension enable --py jupyterlab_code_formatter --sys-prefix
