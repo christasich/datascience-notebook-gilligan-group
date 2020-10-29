@@ -8,7 +8,8 @@ RUN	jupyter labextension install @ryantam626/jupyterlab_code_formatter
 RUN pip install --upgrade jupyterlab-git && \
 	pip install jupyter-lsp && \
 	pip install "jupyterlab>=1.0" jupyterlab-dash==0.1.0a3 && \
-	pip install sidecar
+	pip install sidecar && \
+	pip install SALib
 
 RUN conda install --quiet --yes \
 	'conda-forge::tqdm' \
