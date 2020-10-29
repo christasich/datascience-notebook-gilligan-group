@@ -30,7 +30,6 @@ RUN conda install --quiet --yes \
 	'conda-forge::pyprojroot'
 
 RUN	jupyter labextension install @jupyterlab/debugger --no-build && \
-	jupyter labextension install nbgather --no-build && \
 	jupyter labextension install @jupyterlab/github --no-build && \
 	jupyter labextension install @jupyterlab/toc --no-build && \
 	jupyter labextension install @ijmbarr/jupyterlab_spellchecker --no-build && \
