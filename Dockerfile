@@ -48,6 +48,8 @@ RUN	jupyter labextension install @jupyterlab/debugger --no-build && \
 	jupyter labextension install @jupyter-widgets/jupyterlab-manager --no-build && \
 	jupyter labextension install @jupyter-widgets/jupyterlab-sidecar --no-build && \
 	jupyter labextension install @telamonian/theme-darcula --no-build && \
+	jupyter labextension install jupyterlab-logout --no-build && \
+	jupyter labextension install jupyterlab-theme-toggle --no-build && \
 	jupyter lab build -y && \
     jupyter lab clean -y && \
     npm cache clean --force && \
