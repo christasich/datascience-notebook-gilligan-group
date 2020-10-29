@@ -3,7 +3,7 @@ FROM $BASE_CONTAINER
 
 LABEL maintainer="Chris Tasich <chris.tasich@vanderbilt.edu>"
 
-RUN	jupyter labextension install @ryantam626/jupyterlab_code_formatter
+RUN	jupyter labextension install @ryantam626/jupyterlab_code_formatter --no-build 
 
 RUN pip install --upgrade jupyterlab-git && \
 	pip install jupyter-lsp && \
@@ -28,25 +28,25 @@ RUN conda install --quiet --yes \
 	'conda-forge::r-arrow' \
 	'conda-forge::pyprojroot'
 
-RUN	jupyter labextension install @jupyterlab/debugger && \
-	jupyter labextension install @jupyterlab/github && \
-	jupyter labextension install @jupyterlab/toc && \
-	jupyter labextension install @ijmbarr/jupyterlab_spellchecker && \
-	jupyter labextension install @aquirdturtle/collapsible_headings && \
-	jupyter labextension install @jupyterlab/hub-extension && \
-	jupyter labextension install @krassowski/jupyterlab-lsp && \
-	jupyter labextension install @krassowski/jupyterlab_go_to_definition && \
-	jupyter labextension install @jupyter-widgets/jupyterlab-manager && \
-	jupyter labextension install @j123npm/jupyterlab-dash@0.1.0-alpha.4 && \
-	jupyter labextension install ipysheet && \
-	jupyter labextension install @lckr/jupyterlab_variableinspector && \
-	jupyter labextension install @oriolmirosa/jupyterlab_materialdarker && \
-	jupyter labextension install jupyterlab-drawio && \
-	jupyter labextension install jupyterlab-topbar-extension && \
-	jupyter labextension install jupyterlab-system-monitor && \
-	jupyter labextension install @jupyter-widgets/jupyterlab-manager && \
-	jupyter labextension install @jupyter-widgets/jupyterlab-sidecar && \
-	jupyter labextension install @telamonian/theme-darcula && \
+RUN	jupyter labextension install @jupyterlab/debugger --no-build && \
+	jupyter labextension install @jupyterlab/github --no-build && \
+	jupyter labextension install @jupyterlab/toc --no-build && \
+	jupyter labextension install @ijmbarr/jupyterlab_spellchecker --no-build && \
+	jupyter labextension install @aquirdturtle/collapsible_headings --no-build && \
+	jupyter labextension install @jupyterlab/hub-extension --no-build && \
+	jupyter labextension install @krassowski/jupyterlab-lsp --no-build && \
+	jupyter labextension install @krassowski/jupyterlab_go_to_definition --no-build && \
+	jupyter labextension install @jupyter-widgets/jupyterlab-manager --no-build && \
+	jupyter labextension install @j123npm/jupyterlab-dash@0.1.0-alpha.4 --no-build && \
+	jupyter labextension install ipysheet --no-build && \
+	jupyter labextension install @lckr/jupyterlab_variableinspector --no-build && \
+	jupyter labextension install @oriolmirosa/jupyterlab_materialdarker --no-build && \
+	jupyter labextension install jupyterlab-drawio --no-build && \
+	jupyter labextension install jupyterlab-topbar-extension --no-build && \
+	jupyter labextension install jupyterlab-system-monitor --no-build && \
+	jupyter labextension install @jupyter-widgets/jupyterlab-manager --no-build && \
+	jupyter labextension install @jupyter-widgets/jupyterlab-sidecar --no-build && \
+	jupyter labextension install @telamonian/theme-darcula --no-build && \
 	jupyter lab build -y && \
     jupyter lab clean -y && \
     npm cache clean --force && \
