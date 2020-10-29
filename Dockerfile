@@ -9,7 +9,8 @@ RUN pip install --upgrade jupyterlab-git && \
 	pip install jupyter-lsp && \
 	pip install "jupyterlab>=1.0" jupyterlab-dash==0.1.0a3 && \
 	pip install sidecar && \
-	pip install SALib
+	pip install SALib && \
+	pip install nbdime
 
 RUN conda install --quiet --yes \
 	'conda-forge::tqdm' \
@@ -17,7 +18,7 @@ RUN conda install --quiet --yes \
 	'conda-forge::python-language-server' \
 	'conda-forge::r-languageserver' \
 	'conda-forge::ipysheet' \
-	'xeus-python' \
+	'conda-forge::xeus-python' \
 	'conda-forge::jupyterlab_code_formatter' \
 	'black' \
 	'conda-forge::nbresuse' \
@@ -29,6 +30,7 @@ RUN conda install --quiet --yes \
 	'conda-forge::pyprojroot'
 
 RUN	jupyter labextension install @jupyterlab/debugger --no-build && \
+	jupyter labextension install nbgather --no-build && \
 	jupyter labextension install @jupyterlab/github --no-build && \
 	jupyter labextension install @jupyterlab/toc --no-build && \
 	jupyter labextension install @ijmbarr/jupyterlab_spellchecker --no-build && \
