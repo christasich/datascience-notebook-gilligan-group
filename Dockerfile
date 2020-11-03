@@ -3,14 +3,23 @@ FROM $BASE_CONTAINER
 
 LABEL maintainer="Chris Tasich <chris.tasich@vanderbilt.edu>"
 
-RUN	jupyter labextension install @ryantam626/jupyterlab_code_formatter --no-build 
+USER root
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends texlive-full && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
+USER $NB_UID
+
+RUN jupyter labextension install @ryantam626/jupyterlab_code_formatter --no-build 
 
 RUN pip install --upgrade jupyterlab-git && \
 	pip install jupyter-lsp && \
 	pip install "jupyterlab>=1.0" jupyterlab-dash==0.1.0a3 && \
 	pip install sidecar && \
 	pip install SALib && \
-	pip install nbdime
+	pip install nbdime \
+	pip install jupyterlab_latex
 
 RUN conda install --quiet --yes \
 	'conda-forge::tqdm' \
@@ -50,6 +59,7 @@ RUN	jupyter labextension install @jupyterlab/debugger --no-build && \
 	jupyter labextension install @telamonian/theme-darcula --no-build && \
 	jupyter labextension install jupyterlab-logout --no-build && \
 	jupyter labextension install jupyterlab-theme-toggle --no-build && \
+	jupyter labextension install @jupyterlab/latex --no-build && \
 	jupyter lab build -y && \
     jupyter lab clean -y && \
     npm cache clean --force && \
