@@ -19,7 +19,8 @@ RUN pip install --upgrade jupyterlab-git && \
 	pip install sidecar && \
 	pip install SALib && \
 	pip install nbdime \
-	pip install jupyterlab_latex
+	pip install jupyterlab_latex \
+	pip install lhsmdu
 
 RUN conda install --quiet --yes \
 	'conda-forge::tqdm' \
