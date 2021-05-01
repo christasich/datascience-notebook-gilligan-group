@@ -15,7 +15,7 @@ USER $NB_UID
 RUN pip install jupyterlab-lsp \
 	sidecar \
 	SALib \
-	nbdime==3.0.0.b1 \
+	#nbdime==3.0.0.b1 \
 	lhsmdu \
 	jupyterlab-drawio \
 	lckr-jupyterlab-variableinspector \
@@ -24,11 +24,13 @@ RUN pip install jupyterlab-lsp \
 	black isort \
 	ipywidgets \
 	ipyleaflet \
-	plotly==4.14.3 \
+	plotly \
 	ipympl \
 	ipylab \
-	aquirdturtle_collapsible_headings \
-	jupyterlab-git==0.30.0b1
+	aquirdturtle_collapsible_headings
+	#jupyterlab-git
+
+RUN pip install --pre jupyterlab-git
 
 RUN conda install --quiet --yes \
 	'conda-forge::tqdm' \
@@ -46,7 +48,7 @@ RUN conda install --quiet --yes \
 
 RUN conda update --all
 
-RUN	jupyter labextension install --no build \
+RUN	jupyter labextension install --no-build \
 	@ijmbarr/jupyterlab_spellchecker \
 	@krassowski/jupyterlab_go_to_definition \
 	ipysheet \
